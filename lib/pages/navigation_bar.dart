@@ -12,12 +12,13 @@ class CustomBottomNavigationBar extends ConsumerStatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends ConsumerState<CustomBottomNavigationBar> {
+  var colors = AppColors();
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 60,
       decoration: BoxDecoration(
-        color: AppColors().darkBlue,
+        color: colors.darkBlue,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(12),
           topRight: Radius.circular(12)
