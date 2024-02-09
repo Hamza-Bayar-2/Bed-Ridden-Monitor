@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:solution_challenge/content/app_colors.dart';
+import 'package:solution_challenge/pages/body_temperature_page.dart';
+import 'package:solution_challenge/pages/heart_rate_page.dart';
 import '../riverpod/riverpod_bottom_navigation_bar.dart';
 
 class CustomBottomNavigationBar extends ConsumerStatefulWidget {

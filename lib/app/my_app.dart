@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:solution_challenge/content/app_colors.dart';
-import 'package:solution_challenge/pages/heart_rate_page.dart';
-import '../pages/body_temperature_page.dart';
 import '../pages/navigation_bar.dart';
 import '../riverpod/riverpod_bottom_navigation_bar.dart';
 
@@ -26,7 +24,7 @@ class _MyAppState extends ConsumerState<MyApp> {
           bottomNavigationBar: CustomBottomNavigationBar(),
           body: Padding(
             padding: EdgeInsets.all(10),
-              child: navigationWatch == 0 ? HeartRatePage() : BodyTemperaturePage()/// pages are here
+              child: pageController(navigationWatch) /// pages are here
           ),
         ),
       )
