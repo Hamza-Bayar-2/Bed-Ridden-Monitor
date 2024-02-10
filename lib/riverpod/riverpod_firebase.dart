@@ -4,11 +4,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RiverpodFirebase extends ChangeNotifier{
-  final DatabaseReference _databaseReference = FirebaseDatabase.instance.ref().child('heartRate');
-  DatabaseReference heartRateReference(){
-    return _databaseReference;
+  int _heartRate = 0;
+
+  int getHeartRate(){
+    return _heartRate;
   }
 
+  void changeHeartRate(int num){
+    _heartRate = num;
+    notifyListeners();
+  }
 
 }
 
