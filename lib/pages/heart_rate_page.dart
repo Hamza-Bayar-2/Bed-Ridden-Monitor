@@ -6,6 +6,7 @@ import 'package:solution_challenge/riverpod/riverpod_firebase.dart';
 import 'package:solution_challenge/widgets/pages_main_widget.dart';
 
 import '../content/app_colors.dart';
+import '../widgets/heart_beat_animation.dart';
 import 'body_temperature_page.dart';
 
 class HeartRatePage extends ConsumerStatefulWidget {
@@ -46,8 +47,9 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage> {
               context,
               "Heart Rate",
               rivFirWatch.getHeartRate(),
+              BeatingHeart(heartbeatRate: rivFirWatch.getHeartRate()),
               const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
-              const BodyTemperaturePage(), /// deneme amaçlıdır
+              Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Heart Rates"
           );
 

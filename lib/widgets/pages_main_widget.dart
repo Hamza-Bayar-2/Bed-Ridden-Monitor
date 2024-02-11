@@ -9,6 +9,7 @@ import '../riverpod/riverpod_firebase.dart';
       BuildContext context,
       String header,
       int measurement,
+      Widget heartBeatAnimation,
       Widget graphic,
       Widget previousMeasurementClassName,
       String pushedPageName)
@@ -59,7 +60,7 @@ import '../riverpod/riverpod_firebase.dart';
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  /// Image(image: AssetImage("")),
+                  heartBeatAnimation,
                   Text(
                     "$measurement bpm",
                     style: const TextStyle(
@@ -71,11 +72,11 @@ import '../riverpod/riverpod_firebase.dart';
               graphic,
               GestureDetector(
                 onTap: () {
-                  /// Navigator.push(
-                  ///   context,
-                  ///   MaterialPageRoute(builder: (context) => previousMeasurementPageName),
-                  /// );
-                  /// print("selam");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => previousMeasurementClassName),
+                  );
+                  print("selam");
                 },
                 child: Text(
                   pushedPageName,
