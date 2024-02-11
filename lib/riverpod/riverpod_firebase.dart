@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RiverpodFirebase extends ChangeNotifier{
-  int _heartRate = 0;
+  late int _heartRate;
 
   int getHeartRate(){
     return _heartRate;

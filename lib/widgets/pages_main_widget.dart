@@ -8,8 +8,8 @@ import '../riverpod/riverpod_firebase.dart';
   Widget mainWidget(
       BuildContext context,
       String header,
-      int measurement,
-      Widget heartBeatAnimation,
+      String measurement,
+      Widget icon,
       Widget graphic,
       Widget previousMeasurementClassName,
       String pushedPageName)
@@ -60,9 +60,9 @@ import '../riverpod/riverpod_firebase.dart';
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  heartBeatAnimation,
+                  icon,
                   Text(
-                    "$measurement bpm",
+                    measurement,
                     style: const TextStyle(
                       fontSize: 30,
                     ),

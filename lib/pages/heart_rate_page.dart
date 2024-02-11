@@ -46,7 +46,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage> {
           return mainWidget(
               context,
               "Heart Rate",
-              rivFirWatch.getHeartRate(),
+              "${rivFirWatch.getHeartRate()} bpm",
               BeatingHeart(heartbeatRate: rivFirWatch.getHeartRate()),
               const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
               Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
@@ -56,7 +56,15 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage> {
         } else if(snapshot.hasError){
           return const Center(child: Text("Somthing Went Wrong", style: TextStyle(fontSize: 50),),); /// err olunca başka bişey vermeli
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return mainWidget(
+              context,
+              "Heart Rate",
+              "0 bpm",
+              const Icon(Icons.favorite, color: Colors.red, size: 50.0),
+              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
+              "Previous Heart Rates"
+          );;
         }
       },
     );

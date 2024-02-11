@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 
-Widget heartBeatAnimation() {
-  return AnimatedContainer(
-      duration: Duration(milliseconds: 100)
-  );
-}
-
-
 class BeatingHeart extends StatefulWidget {
   final int heartbeatRate;
 
