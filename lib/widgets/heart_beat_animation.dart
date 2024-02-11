@@ -23,15 +23,19 @@ class _BeatingHeartState extends State<BeatingHeart> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _animationController,
-      builder: (context, child) {
-        return Icon(
-          Icons.favorite,
-          color: Colors.red,
-          size: 50.0 + _animationController.value * 5.0,
-        );
-      },
+    return SizedBox(
+      height: 70,
+      width: 70,
+      child: AnimatedBuilder(
+        animation: _animationController,
+        builder: (context, child) {
+          return Icon(
+            Icons.favorite,
+            color: Colors.red,
+            size: 50.0 + _animationController.value * 5.0,
+          );
+        },
+      ),
     );
   }
 }

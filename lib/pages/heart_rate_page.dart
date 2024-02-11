@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:solution_challenge/riverpod/riverpod_firebase.dart';
 import 'package:solution_challenge/widgets/pages_main_widget.dart';
-
 import '../content/app_colors.dart';
 import '../widgets/heart_beat_animation.dart';
-import 'body_temperature_page.dart';
 
 class HeartRatePage extends ConsumerStatefulWidget {
   const HeartRatePage({Key? key}) : super(key: key);
@@ -64,7 +62,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage> {
               const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
               Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Heart Rates"
-          );;
+          );
         }
       },
     );
