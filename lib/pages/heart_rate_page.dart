@@ -1,5 +1,4 @@
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:solution_challenge/riverpod/riverpod_firebase.dart';
@@ -14,10 +13,9 @@ class HeartRatePage extends ConsumerStatefulWidget {
   ConsumerState<HeartRatePage> createState() => _HeartRatePageState();
 }
 
-class _HeartRatePageState extends ConsumerState<HeartRatePage> {
+class _HeartRatePageState extends ConsumerState<HeartRatePage>{
   var colors = AppColors();
   final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("heartRate");
-
   @override
   void initState() {
     super.initState();
@@ -40,7 +38,6 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage> {
       future: databaseRef.get(),
       builder: (context, snapshot){
         if(snapshot.hasData){
-
           return mainWidget(
               context,
               "Heart Rate",
@@ -50,7 +47,6 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage> {
               Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Heart Rates"
           );
-
         } else if(snapshot.hasError){
           return const Center(child: Text("Somthing Went Wrong", style: TextStyle(fontSize: 50),),); /// err olunca başka bişey vermeli
         } else {

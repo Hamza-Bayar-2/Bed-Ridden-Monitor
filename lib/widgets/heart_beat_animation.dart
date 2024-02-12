@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../riverpod/riverpod_firebase.dart';
 
-class BeatingHeart extends StatefulWidget {
-  final int heartbeatRate;
+class BeatingHeart extends ConsumerStatefulWidget {
+  int heartbeatRate;
 
   BeatingHeart({Key? key, required this.heartbeatRate}) : super(key: key);
 
   @override
-  _BeatingHeartState createState() => _BeatingHeartState();
+  ConsumerState<BeatingHeart> createState() => _BeatingHeartState();
 }
 
-class _BeatingHeartState extends State<BeatingHeart> with SingleTickerProviderStateMixin {
+class _BeatingHeartState extends ConsumerState<BeatingHeart> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
   @override
@@ -23,9 +25,17 @@ class _BeatingHeartState extends State<BeatingHeart> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
+    var rivFirWatch = ref.watch(riverpodFirebase);
+
+    Duration newDuration = Duration(milliseconds: 30000 ~/ (rivFirWatch.getHeartRate()));
+    if (_animationController.duration != newDuration) {
+      _animationController.duration = newDuration;
+      _animationController.repeat(reverse: true);
+    }
+
     return SizedBox(
-      height: 70,
-      width: 70,
+      height: 60,
+      width: 60,
       child: AnimatedBuilder(
         animation: _animationController,
         builder: (context, child) {
@@ -37,6 +47,12 @@ class _BeatingHeartState extends State<BeatingHeart> with SingleTickerProviderSt
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 }
 

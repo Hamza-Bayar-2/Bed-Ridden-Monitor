@@ -4,10 +4,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RiverpodFirebase extends ChangeNotifier{
-  late int _heartRate;
+  int _heartRate = 1;
+  bool initialized = false;
 
   int getHeartRate(){
     return _heartRate;
+  }
+
+  void initialize() {
+    initialized = true;
+    notifyListeners();
   }
 
   void changeHeartRate(int num){
@@ -15,6 +21,14 @@ class RiverpodFirebase extends ChangeNotifier{
     notifyListeners();
   }
 
+  bool getInitialized() {
+    return initialized;
+  }
+
 }
 
-final riverpodFirebase = ChangeNotifierProvider((ref) => RiverpodFirebase());
+final riverpodFirebase = ChangeNotifierProvider((ref) {
+  final provider = RiverpodFirebase();
+  provider.getInitialized(); // Initialize the value
+  return provider;
+});
