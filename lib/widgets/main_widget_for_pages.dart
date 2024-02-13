@@ -7,6 +7,7 @@ import '../riverpod/riverpod_firebase.dart';
 
   Widget mainWidget(
       BuildContext context,
+      Color color,
       String header,
       String measurement,
       Widget icon,
@@ -23,7 +24,7 @@ import '../riverpod/riverpod_firebase.dart';
         width: phoneWidht * 0.9,
         height: phoneHeight * 0.80,
         decoration: BoxDecoration(
-            color: colors.lightRed,
+            color: color,
             borderRadius: BorderRadius.all(Radius.circular(10)),
             boxShadow: [
               BoxShadow(
@@ -56,7 +57,7 @@ import '../riverpod/riverpod_firebase.dart';
                     ),
                   )
                 ],
-              ),
+              ), /// header
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -68,8 +69,8 @@ import '../riverpod/riverpod_firebase.dart';
                     ),
                   ),
                 ],
-              ),
-              graphic,
+              ), /// icon and measurement
+              graphic, /// graphic
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -84,7 +85,7 @@ import '../riverpod/riverpod_firebase.dart';
                     decoration: TextDecoration.underline,
                   ),
                 ),
-              )
+              ) /// previous page button
             ],
           ),
         ),

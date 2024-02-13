@@ -5,10 +5,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RiverpodFirebase extends ChangeNotifier{
   int _heartRate = 1;
+  int _temperature = 1;
   bool initialized = false;
 
   int getHeartRate(){
     return _heartRate;
+  }
+
+  int getTemperature(){
+    return _temperature;
   }
 
   void initialize() {
@@ -18,6 +23,11 @@ class RiverpodFirebase extends ChangeNotifier{
 
   void changeHeartRate(int num){
     _heartRate = num;
+    notifyListeners();
+  }
+
+  void changeTemperature(int num){
+    _temperature = num;
     notifyListeners();
   }
 

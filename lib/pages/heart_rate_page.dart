@@ -2,7 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:solution_challenge/riverpod/riverpod_firebase.dart';
-import 'package:solution_challenge/widgets/pages_main_widget.dart';
+import 'package:solution_challenge/widgets/main_widget_for_pages.dart';
 import '../content/app_colors.dart';
 import '../widgets/heart_beat_animation.dart';
 
@@ -14,8 +14,9 @@ class HeartRatePage extends ConsumerStatefulWidget {
 }
 
 class _HeartRatePageState extends ConsumerState<HeartRatePage>{
-  var colors = AppColors();
-  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("heartRate");
+  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("data/heartRate");
+  var customColors = AppColors();
+
   @override
   void initState() {
     super.initState();
@@ -25,7 +26,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
   void _setupDatabaseListener() {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
-        rivFirRead.changeHeartRate(event.snapshot.value as int);
+      rivFirRead.changeHeartRate(event.snapshot.value as int);
       print(rivFirRead.getHeartRate());
     });
   }
@@ -40,6 +41,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
         if(snapshot.hasData){
           return mainWidget(
               context,
+              customColors.lightRed,
               "Heart Rate",
               "${rivFirWatch.getHeartRate()} bpm",
               BeatingHeart(heartbeatRate: rivFirWatch.getHeartRate()),
@@ -52,6 +54,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
         } else {
           return mainWidget(
               context,
+              customColors.lightRed,
               "Heart Rate",
               "0 bpm",
               const Icon(Icons.favorite, color: Colors.red, size: 50.0),
