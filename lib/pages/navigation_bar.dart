@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:solution_challenge/content/app_colors.dart';
-import 'package:solution_challenge/pages/body_temperature_page.dart';
-import 'package:solution_challenge/pages/heart_rate_page.dart';
 import '../riverpod/riverpod_bottom_navigation_bar.dart';
 
 class CustomBottomNavigationBar extends ConsumerStatefulWidget {
@@ -34,7 +32,9 @@ class _CustomBottomNavigationBarState extends ConsumerState<CustomBottomNavigati
             iconButton(0, "assets/icons/filled_heart.png", "assets/icons/heart.png"),
             iconButton(1, "assets/icons/filled_tempareture.png", "assets/icons/tempareture.png"),
             iconButton(2, "assets/icons/filled_oxygen.png", "assets/icons/oxygen.png"),
-            iconButton(3, "assets/icons/filled_setting.png", "assets/icons/setting.png"),
+            iconButton(3, "assets/icons/happy.png", "assets/icons/happy_light.png"),
+            iconButton(4, "assets/icons/filled_speed.png", "assets/icons/speed.png"),
+            iconButton(5, "assets/icons/filled_setting.png", "assets/icons/setting.png"),
           ],
         ),
       ),
@@ -49,7 +49,7 @@ class _CustomBottomNavigationBarState extends ConsumerState<CustomBottomNavigati
         navigationRead.state = selectedPageIndex;
       },
       child: SizedBox(
-        height: 45,
+        height: 42,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [

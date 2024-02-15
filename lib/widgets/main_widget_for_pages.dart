@@ -62,6 +62,7 @@ import '../riverpod/riverpod_firebase.dart';
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   icon,
+                  SizedBox(width: 10,),
                   Text(
                     measurement,
                     style: const TextStyle(

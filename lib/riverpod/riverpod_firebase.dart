@@ -6,6 +6,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class RiverpodFirebase extends ChangeNotifier{
   int _heartRate = 1;
   int _temperature = 1;
+  int _oxygen = 1;
+  int _gsr = 1;
+  int _acceleration = 1;
   bool initialized = false;
 
   int getHeartRate(){
@@ -14,6 +17,22 @@ class RiverpodFirebase extends ChangeNotifier{
 
   int getTemperature(){
     return _temperature;
+  }
+
+  int getOxygen(){
+    return _oxygen;
+  }
+
+  int getGsr(){
+    return _gsr;
+  }
+
+  int getAcceleration(){
+    return _acceleration;
+  }
+
+  bool getInitialized() {
+    return initialized;
   }
 
   void initialize() {
@@ -31,10 +50,20 @@ class RiverpodFirebase extends ChangeNotifier{
     notifyListeners();
   }
 
-  bool getInitialized() {
-    return initialized;
+  void changeOxygen(int num){
+    _oxygen = num;
+    notifyListeners();
   }
 
+  void changeGsr(int num){
+    _gsr = num;
+    notifyListeners();
+  }
+
+  void changeAcceleration(int num){
+    _acceleration = num;
+    notifyListeners();
+  }
 }
 
 final riverpodFirebase = ChangeNotifierProvider((ref) {

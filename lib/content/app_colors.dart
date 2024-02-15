@@ -6,4 +6,7 @@ class AppColors{
   Color whiteVariety = const Color(0xFFEEE2DE);
   Color lightRed = const Color(0xFFFDD2D2);
   Color red = const Color(0xFFD71313);
+  Color lightGreen = const Color(0xFF9DFFA1);
+  Color lightYellow = const Color(0xFFFFFBA2);
+  Color lightOrange = const Color(0xFFFFD29E);
 }
