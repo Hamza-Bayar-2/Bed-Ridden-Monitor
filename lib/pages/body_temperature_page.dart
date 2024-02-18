@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../content/app_colors.dart';
 import '../riverpod/riverpod_firebase.dart';
 import '../widgets/main_widget_for_pages.dart';
+import '../widgets/temperature_bar_widget.dart';
 
 class BodyTemperaturePage extends ConsumerStatefulWidget {
   const BodyTemperaturePage({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
   void _setupDatabaseListener() {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
-      rivFirRead.changeTemperature(event.snapshot.value as int);
+      rivFirRead.changeTemperature(event.snapshot.value.toString());
       print(rivFirRead.getTemperature());
     });
   }
@@ -46,7 +47,7 @@ class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
               "Body Temperature",
               "${rivFirWatch.getTemperature()} °C",
               const Center(), /// icon olmadığı için boş
-              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              const TemperatureBar(), /// geçici
               Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Temperatures"
           );
@@ -59,7 +60,7 @@ class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
               "Body Temperature",
               "0 °C",
               const Center(), /// icon olmadığı için boş
-              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
               Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Temperatures"
           );

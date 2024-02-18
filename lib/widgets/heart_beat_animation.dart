@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../riverpod/riverpod_firebase.dart';
 
 class BeatingHeart extends ConsumerStatefulWidget {
-  int heartbeatRate;
+  double heartbeatRate;
 
   BeatingHeart({Key? key, required this.heartbeatRate}) : super(key: key);
 
@@ -19,6 +19,7 @@ class _BeatingHeartState extends ConsumerState<BeatingHeart> with SingleTickerPr
     super.initState();
     _animationController = AnimationController(
       vsync: this,
+      /// init yaparken watch kullanamıyoruz o yüzden ilk değeri class ın çağrıldığ yerden aldık
       duration: Duration(milliseconds: 30000 ~/ (widget.heartbeatRate)),
     )..repeat(reverse: true);
   }
@@ -27,7 +28,7 @@ class _BeatingHeartState extends ConsumerState<BeatingHeart> with SingleTickerPr
   Widget build(BuildContext context) {
     var rivFirWatch = ref.watch(riverpodFirebase);
 
-    Duration newDuration = Duration(milliseconds: 30000 ~/ (rivFirWatch.getHeartRate()));
+    Duration newDuration = Duration(milliseconds: 30000 ~/ (double.parse(rivFirWatch.getHeartRate())));
     if (_animationController.duration != newDuration) {
       _animationController.duration = newDuration;
       _animationController.repeat(reverse: true);

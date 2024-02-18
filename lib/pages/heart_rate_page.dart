@@ -26,7 +26,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
   void _setupDatabaseListener() {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
-      rivFirRead.changeHeartRate(event.snapshot.value as int);
+        rivFirRead.changeHeartRate(event.snapshot.value.toString());
       print(rivFirRead.getHeartRate());
     });
   }
@@ -44,8 +44,8 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
               customColors.lightRed,
               "Heart Rate",
               "${rivFirWatch.getHeartRate()} bpm",
-              BeatingHeart(heartbeatRate: rivFirWatch.getHeartRate()),
-              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              BeatingHeart(heartbeatRate: double.parse(rivFirWatch.getHeartRate())),
+              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
               Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Heart Rates"
           );
@@ -58,7 +58,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
               "Heart Rate",
               "0 bpm",
               const Icon(Icons.favorite, color: Colors.red, size: 50.0),
-              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
               Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Heart Rates"
           );

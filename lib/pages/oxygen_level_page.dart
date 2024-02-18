@@ -27,7 +27,7 @@ class _OxygenLevelPageState extends ConsumerState<OxygenLevelPage> {
   void _setupDatabaseListener() {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
-      rivFirRead.changeOxygen(event.snapshot.value as int);
+      rivFirRead.changeOxygen(event.snapshot.value.toString());
       print(rivFirRead.getOxygen());
     });
   }
@@ -46,7 +46,7 @@ class _OxygenLevelPageState extends ConsumerState<OxygenLevelPage> {
               "Oxygen Level",
               "${rivFirWatch.getOxygen()}%",
               SizedBox(height: 50, child: const Image(image: AssetImage("assets/icons/oxygen2.png"))),
-              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
               const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Oxygen Level"
           );
@@ -59,7 +59,7 @@ class _OxygenLevelPageState extends ConsumerState<OxygenLevelPage> {
               "Oxygen Level",
               "0",
               const Icon(Icons.cloud, color: Colors.white, size: 50.0),
-              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
               const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Oxygen Level"
           );

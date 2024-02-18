@@ -25,8 +25,8 @@ class _GsrSensorResultPageState extends ConsumerState<GsrSensorResultPage> {
   void _setupDatabaseListener() {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
-      rivFirRead.changeGsr(event.snapshot.value as int);
-      print(rivFirRead.getGsr());
+      rivFirRead.changeGsr(event.snapshot.value.toString());
+      print(event.snapshot.value);
     });
   }
 
@@ -42,9 +42,9 @@ class _GsrSensorResultPageState extends ConsumerState<GsrSensorResultPage> {
               context,
               customColors.lightYellow,
               "Gsr Sensor Result",
-              "${rivFirWatch.getGsr()}",
+              "${rivFirWatch.getGsr()} Ohm",
               const Center(),
-              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
               const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Gsr Sensor Result"
           );
@@ -55,9 +55,9 @@ class _GsrSensorResultPageState extends ConsumerState<GsrSensorResultPage> {
               context,
               customColors.lightYellow,
               "Gsr Sensor Result",
-              "0",
+              "0 Ohm",
               const Center(),
-              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
               const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Gsr Sensor Result"
           );

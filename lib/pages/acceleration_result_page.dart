@@ -25,7 +25,7 @@ class _AccelerationResultsStatePage extends ConsumerState<AccelerationResultsPag
   void _setupDatabaseListener() {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
-      rivFirRead.changeAcceleration(event.snapshot.value as int);
+      rivFirRead.changeAcceleration(event.snapshot.value.toString());
       print(rivFirRead.getAcceleration());
     });
   }
@@ -44,7 +44,7 @@ class _AccelerationResultsStatePage extends ConsumerState<AccelerationResultsPag
               "Acceleration Result",
               "${rivFirWatch.getAcceleration()} m/s",
               const Center(),
-              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
               const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Acceleration Result"
           );
@@ -57,7 +57,7 @@ class _AccelerationResultsStatePage extends ConsumerState<AccelerationResultsPag
               "Acceleration Result",
               "0",
               const Center(),
-              const Center(child: Text("grafik", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
               const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
               "Previous Acceleration Result"
           );

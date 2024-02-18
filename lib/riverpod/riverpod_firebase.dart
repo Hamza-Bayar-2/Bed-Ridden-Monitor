@@ -4,30 +4,30 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RiverpodFirebase extends ChangeNotifier{
-  int _heartRate = 1;
-  int _temperature = 1;
-  int _oxygen = 1;
-  int _gsr = 1;
-  int _acceleration = 1;
+  String _heartRate = "1";
+  String _temperature = "1";
+  String _oxygen = "1";
+  String _gsr = "1";
+  String _acceleration = "1";
   bool initialized = false;
 
-  int getHeartRate(){
+  String getHeartRate(){
     return _heartRate;
   }
 
-  int getTemperature(){
+  String getTemperature(){
     return _temperature;
   }
 
-  int getOxygen(){
+  String getOxygen(){
     return _oxygen;
   }
 
-  int getGsr(){
+  String getGsr(){
     return _gsr;
   }
 
-  int getAcceleration(){
+  String getAcceleration(){
     return _acceleration;
   }
 
@@ -40,27 +40,27 @@ class RiverpodFirebase extends ChangeNotifier{
     notifyListeners();
   }
 
-  void changeHeartRate(int num){
+  void changeHeartRate(String num){
     _heartRate = num;
     notifyListeners();
   }
 
-  void changeTemperature(int num){
+  void changeTemperature(String num){
     _temperature = num;
     notifyListeners();
   }
 
-  void changeOxygen(int num){
+  void changeOxygen(String num){
     _oxygen = num;
     notifyListeners();
   }
 
-  void changeGsr(int num){
+  void changeGsr(String num){
     _gsr = num;
     notifyListeners();
   }
 
-  void changeAcceleration(int num){
+  void changeAcceleration(String num){
     _acceleration = num;
     notifyListeners();
   }
