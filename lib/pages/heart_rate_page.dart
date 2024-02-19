@@ -5,6 +5,7 @@ import 'package:solution_challenge/riverpod/riverpod_firebase.dart';
 import 'package:solution_challenge/widgets/main_widget_for_pages.dart';
 import '../content/app_colors.dart';
 import '../widgets/heart_beat_animation.dart';
+import '../widgets/previous_measurements_for_pages.dart';
 
 class HeartRatePage extends ConsumerStatefulWidget {
   const HeartRatePage({Key? key}) : super(key: key);
@@ -46,7 +47,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
               "${rivFirWatch.getHeartRate()} bpm",
               BeatingHeart(heartbeatRate: double.parse(rivFirWatch.getHeartRate())),
               const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
-              Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
+              PreviousMeasurementsForPages(title: "Heart Rates Graphics"), /// deneme amaçlıdır
               "Previous Heart Rates"
           );
         } else if(snapshot.hasError){
@@ -59,7 +60,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
               "0 bpm",
               const Icon(Icons.favorite, color: Colors.red, size: 50.0),
               const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
-              Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
+              PreviousMeasurementsForPages(title: "Heart Rates Graphics"), /// deneme amaçlıdır
               "Previous Heart Rates"
           );
         }

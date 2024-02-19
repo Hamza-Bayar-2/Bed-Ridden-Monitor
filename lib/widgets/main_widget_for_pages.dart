@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:solution_challenge/content/app_colors.dart';
-import '../riverpod/riverpod_firebase.dart';
-
 
   Widget mainWidget(
       BuildContext context,
@@ -15,7 +12,7 @@ import '../riverpod/riverpod_firebase.dart';
       Widget previousMeasurementClassName,
       String pushedPageName)
   {
-    var colors = AppColors();
+    var customColors = AppColors();
     var phoneWidht = MediaQuery.of(context).size.width;
     var phoneHeight = MediaQuery.of(context).size.height;
 
@@ -28,7 +25,7 @@ import '../riverpod/riverpod_firebase.dart';
             borderRadius: BorderRadius.all(Radius.circular(10)),
             boxShadow: [
               BoxShadow(
-                color: colors.darkBlue.withOpacity(0.5),
+                color: customColors.darkBlue.withOpacity(0.5),
                 offset: Offset(4, 4),
                 blurRadius: 3,
               )
@@ -44,7 +41,7 @@ import '../riverpod/riverpod_firebase.dart';
                   Text(
                     header,
                     style: TextStyle(
-                        color: colors.darkBlue,
+                        color: customColors.darkBlue,
                         fontSize: 35,
                         fontWeight: FontWeight.w500
                     ),
@@ -52,7 +49,7 @@ import '../riverpod/riverpod_firebase.dart';
                   Text(
                     "Last Measurement",
                     style: TextStyle(
-                      color: colors.darkBlue,
+                      color: customColors.darkBlue,
                       fontSize: 13,
                     ),
                   )

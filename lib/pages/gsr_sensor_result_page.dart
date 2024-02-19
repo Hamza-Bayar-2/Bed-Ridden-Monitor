@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../content/app_colors.dart';
 import '../riverpod/riverpod_firebase.dart';
 import '../widgets/main_widget_for_pages.dart';
+import '../widgets/previous_measurements_for_pages.dart';
 
 class GsrSensorResultPage extends ConsumerStatefulWidget {
   const GsrSensorResultPage({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _GsrSensorResultPageState extends ConsumerState<GsrSensorResultPage> {
               "${rivFirWatch.getGsr()} Ohm",
               const Center(),
               const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
-              const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
+              PreviousMeasurementsForPages(title: "Gsr Sensor Graphics"), /// deneme amaçlıdır
               "Previous Gsr Sensor Result"
           );
         } else if(snapshot.hasError){
@@ -58,7 +59,7 @@ class _GsrSensorResultPageState extends ConsumerState<GsrSensorResultPage> {
               "0 Ohm",
               const Center(),
               const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
-              const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
+              PreviousMeasurementsForPages(title: "Gsr Sensor Graphics"), /// deneme amaçlıdır
               "Previous Gsr Sensor Result"
           );
         }

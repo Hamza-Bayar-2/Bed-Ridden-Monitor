@@ -34,7 +34,7 @@ class _CustomBottomNavigationBarState extends ConsumerState<CustomBottomNavigati
             iconButton(2, "assets/icons/filled_oxygen.png", "assets/icons/oxygen.png"),
             iconButton(3, "assets/icons/happy.png", "assets/icons/happy_light.png"),
             iconButton(4, "assets/icons/filled_speed.png", "assets/icons/speed.png"),
-            iconButton(5, "assets/icons/filled_setting.png", "assets/icons/setting.png"),
+            /// iconButton(5, "assets/icons/filled_setting.png", "assets/icons/setting.png"),
           ],
         ),
       ),

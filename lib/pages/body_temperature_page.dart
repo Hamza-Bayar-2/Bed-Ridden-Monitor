@@ -2,10 +2,10 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../content/app_colors.dart';
 import '../riverpod/riverpod_firebase.dart';
 import '../widgets/main_widget_for_pages.dart';
+import '../widgets/previous_measurements_for_pages.dart';
 import '../widgets/temperature_bar_widget.dart';
 
 class BodyTemperaturePage extends ConsumerStatefulWidget {
@@ -48,7 +48,7 @@ class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
               "${rivFirWatch.getTemperature()} °C",
               const Center(), /// icon olmadığı için boş
               const TemperatureBar(), /// geçici
-              Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
+              PreviousMeasurementsForPages(title: "Body Temperatures Graphics"), /// deneme amaçlıdır
               "Previous Temperatures"
           );
         } else if(snapshot.hasError){
@@ -61,7 +61,7 @@ class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
               "0 °C",
               const Center(), /// icon olmadığı için boş
               const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
-              Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
+              PreviousMeasurementsForPages(title: "Body Temperatures Graphics"), /// deneme amaçlıdır
               "Previous Temperatures"
           );
         }

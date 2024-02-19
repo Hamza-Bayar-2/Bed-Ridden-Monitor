@@ -13,14 +13,31 @@ class MyApp extends ConsumerStatefulWidget {
 }
 
 class _MyAppState extends ConsumerState<MyApp> {
+  var customColors = AppColors();
+
   @override
   Widget build(BuildContext context) {
     var navigationWatch = ref.watch(bottomNavigationBarProvider);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
           backgroundColor: AppColors().whiteVariety,
-          // appBar: ,
+          appBar: AppBar(
+            title: Text(
+              "Health Tracker",
+              style: TextStyle(
+                color: customColors.whiteVariety
+              ),
+            ),
+            backgroundColor: customColors.darkBlue,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(12),
+                  bottomLeft: Radius.circular(12)
+              )
+            ),
+          ),
           bottomNavigationBar: CustomBottomNavigationBar(),
           body: Padding(
             padding: EdgeInsets.all(10),

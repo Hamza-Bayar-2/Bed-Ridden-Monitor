@@ -1,11 +1,10 @@
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../content/app_colors.dart';
 import '../riverpod/riverpod_firebase.dart';
 import '../widgets/main_widget_for_pages.dart';
+import '../widgets/previous_measurements_for_pages.dart';
 
 class OxygenLevelPage extends ConsumerStatefulWidget {
   const OxygenLevelPage({Key? key}) : super(key: key);
@@ -45,9 +44,9 @@ class _OxygenLevelPageState extends ConsumerState<OxygenLevelPage> {
               customColors.lightGreen,
               "Oxygen Level",
               "${rivFirWatch.getOxygen()}%",
-              SizedBox(height: 50, child: const Image(image: AssetImage("assets/icons/oxygen2.png"))),
+              const SizedBox(height: 50, child: Image(image: AssetImage("assets/icons/oxygen2.png"))),
               const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
-              const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
+              PreviousMeasurementsForPages(title: "Oxygen Level Graphics"), /// deneme amaçlıdır
               "Previous Oxygen Level"
           );
         } else if(snapshot.hasError){
@@ -60,7 +59,7 @@ class _OxygenLevelPageState extends ConsumerState<OxygenLevelPage> {
               "0",
               const Icon(Icons.cloud, color: Colors.white, size: 50.0),
               const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
-              const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
+              PreviousMeasurementsForPages(title: "Oxygen Level Graphics"), /// deneme amaçlıdır
               "Previous Oxygen Level"
           );
         }

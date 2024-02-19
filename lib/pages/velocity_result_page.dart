@@ -4,16 +4,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../content/app_colors.dart';
 import '../riverpod/riverpod_firebase.dart';
 import '../widgets/main_widget_for_pages.dart';
+import '../widgets/previous_measurements_for_pages.dart';
 
-class AccelerationResultsPage extends ConsumerStatefulWidget {
-  const AccelerationResultsPage({Key? key}) : super(key: key);
+class VelocityResultsPage extends ConsumerStatefulWidget {
+  const VelocityResultsPage({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<AccelerationResultsPage> createState() => _AccelerationResultsStatePage();
+  ConsumerState<VelocityResultsPage> createState() => _AccelerationResultsStatePage();
 }
 
-class _AccelerationResultsStatePage extends ConsumerState<AccelerationResultsPage> {
-  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("data/acceleration");
+class _AccelerationResultsStatePage extends ConsumerState<VelocityResultsPage> {
+  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("data/velocity");
   var customColors = AppColors();
 
   @override
@@ -41,12 +42,12 @@ class _AccelerationResultsStatePage extends ConsumerState<AccelerationResultsPag
           return mainWidget(
               context,
               customColors.lightOrange,
-              "Acceleration Result",
+              "Velocity Result",
               "${rivFirWatch.getAcceleration()} m/s",
               const Center(),
               const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
-              const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
-              "Previous Acceleration Result"
+              PreviousMeasurementsForPages(title: "Velocity Graphics"), /// deneme amaçlıdır
+              "Previous Velocity Result"
           );
         } else if(snapshot.hasError){
           return const Center(child: Text("Somthing Went Wrong", style: TextStyle(fontSize: 50),),); /// err olunca başka bişey vermeli
@@ -54,12 +55,12 @@ class _AccelerationResultsStatePage extends ConsumerState<AccelerationResultsPag
           return mainWidget(
               context,
               customColors.lightOrange,
-              "Acceleration Result",
+              "Velocity Result",
               "0",
               const Center(),
               const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
-              const Center(child: Text("push", style: TextStyle(fontSize: 50),),), /// deneme amaçlıdır
-              "Previous Acceleration Result"
+              PreviousMeasurementsForPages(title: "Velocity Graphics"), /// deneme amaçlıdır
+              "Previous Velocity Result"
           );
         }
       },
