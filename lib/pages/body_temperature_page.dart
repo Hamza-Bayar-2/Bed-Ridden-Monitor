@@ -29,6 +29,7 @@ class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
       rivFirRead.changeTemperature(event.snapshot.value.toString());
+      /// rivFirRead.changeHeartRate(event.snapshot.value.toString().split(": ").last.toString().split("}").first.toString());
       print(rivFirRead.getTemperature());
     });
   }
@@ -59,7 +60,7 @@ class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
               customColors.lightBlue,
               "Body Temperature",
               "0 °C",
-              const Center(), /// icon olmadığı için boş
+              const TemperatureBar(), /// icon olmadığı için boş
               const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
               PreviousMeasurementsForPages(title: "Body Temperatures Graphics"), /// deneme amaçlıdır
               "Previous Temperatures"

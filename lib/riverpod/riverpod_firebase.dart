@@ -4,11 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RiverpodFirebase extends ChangeNotifier{
-  String _heartRate = "1";
-  String _temperature = "1";
-  String _oxygen = "1";
-  String _gsr = "1";
-  String _acceleration = "1";
+  String _heartRate = "0";
+  String _temperature = "0";
+  String _oxygen = "0";
+  String _gsr = "0";
+  String _acceleration = "0";
   bool initialized = false;
 
   String getHeartRate(){

@@ -27,7 +27,9 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
   void _setupDatabaseListener() {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
-        rivFirRead.changeHeartRate(event.snapshot.value.toString());
+      // snapshot ın değeri {key: value} şeklinde olduğu için split ile ayırıp value ye ulaştım. key i kullanamadım çünkü sürekli değişiyor.
+      rivFirRead.changeHeartRate(event.snapshot.value.toString());
+      /// rivFirRead.changeHeartRate(event.snapshot.value.toString().split(": ").last.toString().split("}").first.toString());
       print(rivFirRead.getHeartRate());
     });
   }
@@ -46,7 +48,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
               "Heart Rate",
               "${rivFirWatch.getHeartRate()} bpm",
               BeatingHeart(heartbeatRate: double.parse(rivFirWatch.getHeartRate())),
-              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(), /// geçici
               PreviousMeasurementsForPages(title: "Heart Rates Graphics"), /// deneme amaçlıdır
               "Previous Heart Rates"
           );
@@ -59,7 +61,7 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
               "Heart Rate",
               "0 bpm",
               const Icon(Icons.favorite, color: Colors.red, size: 50.0),
-              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(), /// geçici
               PreviousMeasurementsForPages(title: "Heart Rates Graphics"), /// deneme amaçlıdır
               "Previous Heart Rates"
           );

@@ -27,6 +27,7 @@ class _AccelerationResultsStatePage extends ConsumerState<VelocityResultsPage> {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
       rivFirRead.changeAcceleration(event.snapshot.value.toString());
+      /// rivFirRead.changeHeartRate(event.snapshot.value.toString().split(": ").last.toString().split("}").first.toString());
       print(rivFirRead.getAcceleration());
     });
   }
@@ -45,7 +46,7 @@ class _AccelerationResultsStatePage extends ConsumerState<VelocityResultsPage> {
               "Velocity Result",
               "${rivFirWatch.getAcceleration()} m/s",
               const Center(),
-              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(), /// geçici
               PreviousMeasurementsForPages(title: "Velocity Graphics"), /// deneme amaçlıdır
               "Previous Velocity Result"
           );
