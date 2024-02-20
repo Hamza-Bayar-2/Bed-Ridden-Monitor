@@ -27,6 +27,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/github_readme_images/
   uses-material-design: true
 
 
