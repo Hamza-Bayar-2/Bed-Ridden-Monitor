@@ -14,7 +14,7 @@ class OxygenLevelPage extends ConsumerStatefulWidget {
 }
 
 class _OxygenLevelPageState extends ConsumerState<OxygenLevelPage> {
-  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("data/oxygen");
+  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("Sensors/Oxy/SpO2");
   var customColors = AppColors();
 
   @override
@@ -27,7 +27,6 @@ class _OxygenLevelPageState extends ConsumerState<OxygenLevelPage> {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
       rivFirRead.changeOxygen(event.snapshot.value.toString());
-      /// rivFirRead.changeHeartRate(event.snapshot.value.toString().split(": ").last.toString().split("}").first.toString());
       print(rivFirRead.getOxygen());
     });
   }

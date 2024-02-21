@@ -15,7 +15,7 @@ class HeartRatePage extends ConsumerStatefulWidget {
 }
 
 class _HeartRatePageState extends ConsumerState<HeartRatePage>{
-  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("data/heartRate");
+  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("Sensors/Oxy/HR");
   var customColors = AppColors();
 
   @override

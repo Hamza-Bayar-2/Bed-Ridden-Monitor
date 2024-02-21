@@ -16,7 +16,7 @@ class BodyTemperaturePage extends ConsumerStatefulWidget {
 }
 
 class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
-  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("data/temperature");
+  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("Sensors/Temp");
   var customColors = AppColors();
 
   @override
@@ -29,7 +29,6 @@ class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
       rivFirRead.changeTemperature(event.snapshot.value.toString());
-      /// rivFirRead.changeHeartRate(event.snapshot.value.toString().split(": ").last.toString().split("}").first.toString());
       print(rivFirRead.getTemperature());
     });
   }

@@ -14,7 +14,10 @@ class VelocityResultsPage extends ConsumerStatefulWidget {
 }
 
 class _AccelerationResultsStatePage extends ConsumerState<VelocityResultsPage> {
-  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("data/velocity");
+  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("Sensors/Gyro");
+  final DatabaseReference databaseRefX = FirebaseDatabase.instance.ref("Sensors/Gyro/gx");
+  final DatabaseReference databaseRefY = FirebaseDatabase.instance.ref("Sensors/Gyro/gy");
+  final DatabaseReference databaseRefZ = FirebaseDatabase.instance.ref("Sensors/Gyro/gz");
   var customColors = AppColors();
 
   @override
@@ -25,10 +28,19 @@ class _AccelerationResultsStatePage extends ConsumerState<VelocityResultsPage> {
 
   void _setupDatabaseListener() {
     var rivFirRead = ref.read(riverpodFirebase);
-    databaseRef.onValue.listen((event) {
-      rivFirRead.changeAcceleration(event.snapshot.value.toString());
-      /// rivFirRead.changeHeartRate(event.snapshot.value.toString().split(": ").last.toString().split("}").first.toString());
-      print(rivFirRead.getAcceleration());
+    databaseRefX.onValue.listen((event) {
+      rivFirRead.changeVelocityX(event.snapshot.value.toString());
+      print(rivFirRead.getVelocityX());
+    });
+
+    databaseRefY.onValue.listen((event) {
+      rivFirRead.changeVelocityY(event.snapshot.value.toString());
+      print(rivFirRead.getVelocityY());
+    });
+
+    databaseRefZ.onValue.listen((event) {
+      rivFirRead.changeVelocityZ(event.snapshot.value.toString());
+      print(rivFirRead.getVelocityZ());
     });
   }
 
@@ -44,7 +56,7 @@ class _AccelerationResultsStatePage extends ConsumerState<VelocityResultsPage> {
               context,
               customColors.lightOrange,
               "Velocity Result",
-              "${rivFirWatch.getAcceleration()} m/s",
+              "gx = ${rivFirWatch.getVelocityX()}\ngy = ${rivFirWatch.getVelocityY()}\ngz = ${rivFirWatch.getVelocityZ()}",
               const Center(),
               const Center(), /// geçici
               PreviousMeasurementsForPages(title: "Velocity Graphics"), /// deneme amaçlıdır

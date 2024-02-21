@@ -8,7 +8,9 @@ class RiverpodFirebase extends ChangeNotifier{
   String _temperature = "0";
   String _oxygen = "0";
   String _gsr = "0";
-  String _acceleration = "0";
+  String _velocityX = "0";
+  String _velocityY = "0";
+  String _velocityZ = "0";
   bool initialized = false;
 
   String getHeartRate(){
@@ -27,8 +29,16 @@ class RiverpodFirebase extends ChangeNotifier{
     return _gsr;
   }
 
-  String getAcceleration(){
-    return _acceleration;
+  String getVelocityX(){
+    return _velocityX;
+  }
+
+  String getVelocityY(){
+    return _velocityY;
+  }
+
+  String getVelocityZ(){
+    return _velocityZ;
   }
 
   bool getInitialized() {
@@ -60,8 +70,18 @@ class RiverpodFirebase extends ChangeNotifier{
     notifyListeners();
   }
 
-  void changeAcceleration(String num){
-    _acceleration = num;
+  void changeVelocityX(String num){
+    _velocityX = num;
+    notifyListeners();
+  }
+
+  void changeVelocityY(String num){
+    _velocityY = num;
+    notifyListeners();
+  }
+
+  void changeVelocityZ(String num){
+    _velocityZ = num;
     notifyListeners();
   }
 }

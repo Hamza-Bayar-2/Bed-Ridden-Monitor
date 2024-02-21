@@ -14,7 +14,7 @@ class GsrSensorResultPage extends ConsumerStatefulWidget {
 }
 
 class _GsrSensorResultPageState extends ConsumerState<GsrSensorResultPage> {
-  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("data/gsr");
+  final DatabaseReference databaseRef = FirebaseDatabase.instance.ref("Sensors/GSR");
   var customColors = AppColors();
 
   @override
@@ -27,7 +27,6 @@ class _GsrSensorResultPageState extends ConsumerState<GsrSensorResultPage> {
     var rivFirRead = ref.read(riverpodFirebase);
     databaseRef.onValue.listen((event) {
       rivFirRead.changeGsr(event.snapshot.value.toString());
-      /// rivFirRead.changeHeartRate(event.snapshot.value.toString().split(": ").last.toString().split("}").first.toString());
       print(event.snapshot.value);
     });
   }
