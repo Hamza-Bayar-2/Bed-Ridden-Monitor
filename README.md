@@ -1,9 +1,11 @@
-# solution_challenge
+# Solution Challenge 2024 GDSC OMU
 
 <div align="center">
-    <img src="/assets/github_readme_images/icon.png" width=30% height=30%>
-    <p>Bed-Ridden Monitor</p>
+    <img src="/assets/github_readme_images/tools.png" width=100% height=auto>
 </div>
+
+<br>
+<br>
 
 | **ScreenShot** | **ScreenShot** |
 |:--------------:|:---:|
@@ -11,6 +13,7 @@
 |<img src="/assets/github_readme_images/oxygen_level_page.png" width=95% height=95%>|<img src="/assets/github_readme_images/gsr_sensor_result_page.png" width=95% height=95%>|
 |<img src="/assets/github_readme_images/velocity_result_page.png" width=95% height=95%>|<img src="/assets/github_readme_images/icon.png" width=90% height=90%>|
 
+<br>
 
 
 ### Dependencies
@@ -22,6 +25,7 @@ This project is built with a variety of great open source libraries and packages
 *  [firebase_database: ^10.4.0](https://pub.dev/packages/firebase_database)
 *  [firebase_core: ^2.24.2](https://pub.dev/packages/firebase_core)
 
+<br>
 
 
 ### Installation
