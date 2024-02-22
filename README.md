@@ -14,3 +14,11 @@
 <img src="/assets/github_readme_images/gsr_sensor_result_page.png" width=35% height=35%>
 
 <img src="/assets/github_readme_images/velocity_result_page.png" width=35% height=35%>
+
+Dependencies
+
+flutter_riverpod: ^2.4.9
+cupertino_icons: ^1.0.2
+firebase_database: ^10.4.0
+firebase_core: ^2.24.2
+firebase_storage: ^11.6.0
