@@ -1,7 +1,7 @@
 # solution_challenge
 
 <div align="center">
-    <img src="/assets/github_readme_images/black_icon.png">
+    <img src="/assets/github_readme_images/black_icon.png" width=30% height=30%>
     <p>Bed-Ridden Monitor</p>
 </div>
 
