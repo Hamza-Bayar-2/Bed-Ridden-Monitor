@@ -4,6 +4,8 @@
     <img src="/assets/github_readme_images/tools.png" width=100% height=auto>
 </div>
 
+<br>
+Bed-Ridden-Monitor is a mobile application designed to monitor the health status of bedridden patients. Developed using the Dart programming language and Flutter framework, it is compatible with both Android and iOS devices. The app tracks patient movements and positions via sensors, sending instant notifications to healthcare providers or family members. With its user-friendly interface, it ensures easy usage for both patients and caregivers. Real-time data tracking and reporting features enhance the efficiency of patient care, while its alert system enables quick intervention when necessary. Bed-Ridden-Monitor offers a practical and secure solution, contributing to the digitalization of healthcare processes.
 <br> 
 <br>
 
