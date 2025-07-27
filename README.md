@@ -4,8 +4,7 @@
     <img src="/assets/github_readme_images/tools.png" width=100% height=auto>
 </div>
 
-<br>
-Bed-Ridden-Monitor uygulaması, yatağa bağımlı hastaların sağlık durumunu takip etmeyi amaçlayan bir mobil uygulamadır. Dart programlama dili ve Flutter framework’ü ile geliştirilmiştir, bu sayede hem Android hem de iOS cihazlarda çalışabilir. Uygulama, hastanın hareketlerini ve pozisyonunu sensörler aracılığıyla izler ve sağlık personeline veya yakınlarına anlık bildirimler gönderir. Kullanıcı dostu arayüzüyle kolay kullanım sunar. Gerçek zamanlı veri takibi ve raporlama özellikleri sayesinde hasta bakım süreçlerinde verimliliği artırır ve sağlık sektöründe dijitalleşmeye katkı sağlar.
+<br> 
 <br>
 
 | **ScreenShot** | **ScreenShot** |
