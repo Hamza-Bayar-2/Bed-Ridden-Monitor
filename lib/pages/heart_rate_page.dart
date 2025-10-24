@@ -53,7 +53,14 @@ class _HeartRatePageState extends ConsumerState<HeartRatePage>{
               "Previous Heart Rates"
           );
         } else if(snapshot.hasError){
-          return const Center(child: Text("Somthing Went Wrong", style: TextStyle(fontSize: 50),),); /// err olunca başka bişey vermeli
+          return Center(
+            child: Text(
+              "Somthing Went Wrong\n\n${snapshot.error.toString().split("]").last}",
+              style: const TextStyle(
+                  fontSize: 30
+              ),
+            ),
+          ); /// err olunca başka bişey vermeli
         } else {
           return mainWidget(
               context,

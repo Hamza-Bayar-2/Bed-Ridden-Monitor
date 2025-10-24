@@ -52,7 +52,14 @@ class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
               "Previous Temperatures"
           );
         } else if(snapshot.hasError){
-          return const Center(child: Text("Somthing Went Wrong", style: TextStyle(fontSize: 50),),); /// err olunca başka bişey vermeli
+          return Center(
+            child: Text(
+              "Somthing Went Wrong\n\n${snapshot.error.toString().split("]").last}",
+              style: const TextStyle(
+                  fontSize: 30
+              ),
+            ),
+          ); /// err olunca başka bişey vermeli
         } else {
           return mainWidget(
               context,
@@ -60,7 +67,7 @@ class _BodyTemperaturePageState extends ConsumerState<BodyTemperaturePage> {
               "Body Temperature",
               "0 °C",
               const TemperatureBar(), /// icon olmadığı için boş
-              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(), /// geçici
               PreviousMeasurementsForPages(title: "Body Temperatures Graphics"), /// deneme amaçlıdır
               "Previous Temperatures"
           );

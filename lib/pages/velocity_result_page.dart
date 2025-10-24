@@ -63,7 +63,14 @@ class _AccelerationResultsStatePage extends ConsumerState<VelocityResultsPage> {
               "Previous Velocity Result"
           );
         } else if(snapshot.hasError){
-          return const Center(child: Text("Somthing Went Wrong", style: TextStyle(fontSize: 50),),); /// err olunca başka bişey vermeli
+          return Center(
+            child: Text(
+              "Somthing Went Wrong\n\n${snapshot.error.toString().split("]").last}",
+              style: const TextStyle(
+                  fontSize: 30
+              ),
+            ),
+          ); /// err olunca başka bişey vermeli
         } else {
           return mainWidget(
               context,
@@ -71,7 +78,7 @@ class _AccelerationResultsStatePage extends ConsumerState<VelocityResultsPage> {
               "Velocity Result",
               "0",
               const Center(),
-              const Center(child: Text("graphic", style: TextStyle(fontSize: 50),),), /// geçici
+              const Center(), /// geçici
               PreviousMeasurementsForPages(title: "Velocity Graphics"), /// deneme amaçlıdır
               "Previous Velocity Result"
           );
